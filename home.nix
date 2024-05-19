@@ -74,6 +74,7 @@
       enable = true;
       extraConfig = {
         init.defaultBranch = "main";
+        merge.tool = "nvimdiff";
       };
       userEmail = "byron.n.sharman@gmail.com";
       userName = "b-sharman";
