@@ -121,6 +121,7 @@
       defaultKeymap = "viins";
       enable = true;
       enableCompletion = true;
+      enableVteIntegration = true;
       initExtra = builtins.readFile zsh/init.sh;
       shellAliases = {
         grep = "grep --color=auto";
