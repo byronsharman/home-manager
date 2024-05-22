@@ -124,7 +124,8 @@
       enableVteIntegration = true;
       initExtra = builtins.readFile zsh/init.sh;
       shellAliases = {
-        grep = "grep --color=auto";
+        grep = "grep --color";
+        ls = "ls --color --group-directories-first";
       };
       syntaxHighlighting.enable = true;
     };
