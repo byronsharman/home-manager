@@ -125,6 +125,7 @@
       initExtra = builtins.readFile zsh/init.sh;
       shellAliases = {
         grep = "grep --color";
+        ip = "ip -c";
         ls = "ls --color --group-directories-first";
       };
       syntaxHighlighting.enable = true;
