@@ -70,6 +70,11 @@
     # Let Home Manager install and manage itself.
     home-manager.enable = true;
 
+    fzf = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
     git = {
       enable = true;
       extraConfig = {
