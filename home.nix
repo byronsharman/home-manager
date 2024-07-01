@@ -129,6 +129,7 @@
       enableVteIntegration = true;
       initExtra = builtins.readFile zsh/init.sh;
       shellAliases = {
+        du = "du -h";
         grep = "grep --color";
         ip = "ip -c";
         ls = "ls --color --group-directories-first";
