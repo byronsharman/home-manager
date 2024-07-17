@@ -72,7 +72,9 @@
 
     fzf = {
       enable = true;
-      enableZshIntegration = true;
+      # enabling it manually allows me to disable Alt-C
+      # see https://github.com/junegunn/fzf/issues/1238
+      enableZshIntegration = false;
     };
 
     git = {
