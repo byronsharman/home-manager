@@ -94,6 +94,13 @@
       plugins = with pkgs.vimPlugins; [
         {
           type = "lua";
+          plugin = nvim-lspconfig;
+          config = ''
+            require('lspconfig')
+          '';
+        }
+        {
+          type = "lua";
           plugin = nvim-treesitter.withAllGrammars;
           config = ''
             require('nvim-treesitter.configs').setup({
@@ -127,6 +134,13 @@
             vim.keymap.set('n', '<leader>f', builtin.find_files, {})
             vim.keymap.set('n', '<leader>l', builtin.live_grep, {})
             vim.keymap.set('n', '<leader>t', builtin.treesitter, {})
+          '';
+        }
+        {
+          type = "lua";
+          plugin = typescript-tools-nvim;
+          config = ''
+            require('typescript-tools').setup{}
           '';
         }
       ];
