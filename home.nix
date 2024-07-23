@@ -97,6 +97,7 @@
           plugin = nvim-lspconfig;
           config = ''
             require('lspconfig')
+            require('lspconfig').svelte.setup{}
           '';
         }
         {
