@@ -6,3 +6,5 @@ function jmp {
 
 bindkey '^ ' autosuggest-accept
 FZF_ALT_C_COMMAND= source <(fzf --zsh)
+
+export PATH="$PATH:/home/byron/.cargo/bin"
