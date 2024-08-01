@@ -102,19 +102,19 @@
               settings = {
                 ["harper-ls"] = {
                   linters = {
+                    an_a = true,
+                    correct_number_suffix = true,
+                    long_sentences = false,
+                    matcher = true,
+                    multiple_sequential_pronouns = true,
+                    number_suffix_capitalization = true,
+                    repeated_words = true,
+                    sentence_capitalization = false,
+                    spaces = true,
                     spell_check = false,
                     spelled_numbers = false,
-                    an_a = true,
-                    sentence_capitalization = false,
                     unclosed_quotes = true,
-                    wrong_quotes = false,
-                    long_sentences = false,
-                    repeated_words = true,
-                    spaces = true,
-                    matcher = true,
-                    correct_number_suffix = true,
-                    number_suffix_capitalization = true,
-                    multiple_sequential_pronouns = true
+                    wrong_quotes = false
                   }
                 }
               },
