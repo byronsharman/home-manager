@@ -151,6 +151,13 @@
           type = "lua";
           plugin = telescope-nvim;
           config = ''
+            require('telescope').setup{
+              pickers = {
+                find_files = {
+                  find_command = {'rg', '--files', '--sortr=modified'}
+                }
+              }
+            }
             local builtin = require('telescope.builtin')
             vim.keymap.set('n', '<leader>b', builtin.buffers, {})
             vim.keymap.set('n', '<leader>f', builtin.find_files, {})
