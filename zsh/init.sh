@@ -1,3 +1,5 @@
+export PS1='[%n@%M %1~]$ '
+
 # cd on steroids, made by Grant & Lukas
 function jmp {
   # remove the -H from fd to omit hidden files
