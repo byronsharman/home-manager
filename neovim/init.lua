@@ -8,7 +8,7 @@ vim.opt.spelllang = "en_us"
 
 -- tab stuff
 vim.opt.expandtab = true
-vim.opt.shiftwidth = 2
+vim.opt.shiftwidth = 4
 vim.opt.softtabstop = -1
 vim.opt.smarttab = true
 
