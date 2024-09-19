@@ -119,6 +119,7 @@
                 }
               },
             }
+            require('lspconfig').ruff.setup{}
           '';
         }
         {
