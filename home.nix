@@ -97,6 +97,7 @@
           plugin = nvim-lspconfig;
           config = ''
             require('lspconfig')
+            require('lspconfig').gopls.setup{}
             require('lspconfig').svelte.setup{}
             require('lspconfig').harper_ls.setup {
               settings = {
