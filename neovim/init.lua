@@ -1,5 +1,3 @@
-vim.cmd("colorscheme retrobox")
-
 vim.opt.hlsearch = false
 
 -- spell-checking

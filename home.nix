@@ -94,6 +94,24 @@
       plugins = with pkgs.vimPlugins; [
         {
           type = "lua";
+          plugin = plenary-nvim;
+        }
+        {
+          type = "lua";
+          plugin = lush-nvim;
+        }
+        {
+          type = "lua";
+          plugin = bluloco-nvim;
+          config = ''
+            require('bluloco').setup {
+              transparent = true,
+            }
+            vim.cmd("colorscheme bluloco")
+          '';
+        }
+        {
+          type = "lua";
           plugin = nvim-lspconfig;
           config = ''
             require('lspconfig')
@@ -144,10 +162,6 @@
               indent = { enable = true },
             })
           '';
-        }
-        {
-          type = "lua";
-          plugin = plenary-nvim;
         }
         {
           type = "lua";
