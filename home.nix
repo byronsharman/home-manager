@@ -129,7 +129,7 @@
                     number_suffix_capitalization = true,
                     repeated_words = true,
                     sentence_capitalization = false,
-                    spaces = true,
+                    spaces = false,
                     spell_check = false,
                     spelled_numbers = false,
                     unclosed_quotes = true,
