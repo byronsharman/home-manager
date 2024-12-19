@@ -10,6 +10,9 @@ vim.opt.shiftwidth = 4
 vim.opt.softtabstop = -1
 vim.opt.smarttab = true
 
+-- disable annoying diagnostics gutter
+vim.diagnostic.config({signs=false})
+
 -- highlight yanked text for 200ms
 vim.cmd[[
   augroup highlight_yank
