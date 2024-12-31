@@ -170,20 +170,12 @@
         }
         {
           type = "lua";
-          plugin = telescope-nvim;
+          plugin = fzf-lua;
           config = ''
-            require('telescope').setup{
-              pickers = {
-                find_files = {
-                  find_command = {'rg', '--files', '--sortr=modified'}
-                }
-              }
-            }
-            local builtin = require('telescope.builtin')
-            vim.keymap.set('n', '<leader>b', builtin.buffers, {})
-            vim.keymap.set('n', '<leader>f', builtin.find_files, {})
-            vim.keymap.set('n', '<leader>g', builtin.git_status, {})
-            vim.keymap.set('n', '<leader>l', builtin.live_grep, {})
+            vim.keymap.set('n', '<leader>b', require('fzf-lua').buffers, {})
+            vim.keymap.set('n', '<leader>f', require('fzf-lua').files, {})
+            vim.keymap.set('n', '<leader>g', require('fzf-lua').git_status, {})
+            vim.keymap.set('n', '<leader>l', require('fzf-lua').live_grep, {})
           '';
         }
         {
