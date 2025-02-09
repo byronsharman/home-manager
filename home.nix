@@ -210,7 +210,7 @@
         du = "du -h";
         grep = "grep --color";
         ip = "ip -c";
-        ls = "ls --color --group-directories-first";
+        ls = "ls --color --group-directories-first -h";
       };
       syntaxHighlighting.enable = true;
     };
