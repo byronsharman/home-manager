@@ -9,4 +9,6 @@ function jmp {
 bindkey '^ ' autosuggest-accept
 FZF_ALT_C_COMMAND= source <(fzf --zsh)
 
+# for some reason home.sessionVariables doesn't work, so we just do it this way :P
 export PATH="$PATH:/home/byron/.cargo/bin"
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
