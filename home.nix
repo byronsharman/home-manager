@@ -174,6 +174,11 @@
           plugin = telescope-nvim;
           config = ''
             require('telescope').setup{
+              extensions = {
+                ['ui-select'] = {
+                  require('telescope.themes').get_dropdown{}
+                }
+              },
               pickers = {
                 find_files = {
                   find_command = {'rg', '--files', '--sortr=modified'}
@@ -185,7 +190,18 @@
             vim.keymap.set('n', '<leader>f', builtin.find_files, {})
             vim.keymap.set('n', '<leader>g', builtin.git_status, {})
             vim.keymap.set('n', '<leader>l', builtin.live_grep, {})
+
+            require('telescope').load_extension('fzf')
+            require('telescope').load_extension('ui-select')
           '';
+        }
+        {
+          type = "lua";
+          plugin = telescope-fzf-native-nvim;
+        }
+        {
+          type = "lua";
+          plugin = telescope-ui-select-nvim;
         }
         # {
         #   type = "lua";
