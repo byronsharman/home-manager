@@ -203,6 +203,16 @@
           type = "lua";
           plugin = telescope-ui-select-nvim;
         }
+        {
+          type = "lua";
+          plugin = nvim-autopairs;
+          config = ''
+            require('nvim-autopairs').setup{
+              disable_in_visualblock = false,
+              enable_check_bracket_line = false,
+            }
+          '';
+        }
         # {
         #   type = "lua";
         #   plugin = nvim-jdtls;
