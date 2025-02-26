@@ -120,6 +120,9 @@
           plugin = nvim-lspconfig;
           config = ''
             require('lspconfig')
+            require('lspconfig').biome.setup{
+              cmd = {"npx", "biome", "lsp-proxy"},
+            }
             require('lspconfig').gopls.setup{}
             require('lspconfig').jdtls.setup{}
             require('lspconfig').svelte.setup{}
