@@ -235,7 +235,13 @@
     };
 
     zsh = {
-      autosuggestion.enable = true;
+      autosuggestion = {
+        enable = true;
+        strategy = [
+          "history"
+          "completion"
+        ];
+      };
       defaultKeymap = "viins";
       enable = true;
       enableCompletion = true;
