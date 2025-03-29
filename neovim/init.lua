@@ -11,7 +11,10 @@ vim.opt.softtabstop = -1
 vim.opt.smarttab = true
 
 -- disable annoying diagnostics gutter
-vim.diagnostic.config({signs=false})
+vim.diagnostic.config({
+    signs=false,
+    virtual_lines=true,
+})
 
 -- highlight yanked text for 200ms
 vim.cmd[[
