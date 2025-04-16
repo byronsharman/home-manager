@@ -136,6 +136,7 @@
                     Spaces = false,
                     SpellCheck = false,
                     SpelledNumbers = false,
+                    ToDoHyphen = false,
                     UnclosedQuotes = true,
                     WrongQuotes = false
                   }
