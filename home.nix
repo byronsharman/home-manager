@@ -115,6 +115,7 @@
         {
           type = "lua";
           plugin = nvim-lspconfig;
+          # TODO: migrate to new vim.lsp.enable / vim.lsp.config syntax
           config = ''
             require('lspconfig')
             require('lspconfig').biome.setup{
