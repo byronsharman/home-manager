@@ -122,6 +122,7 @@
             }
             require('lspconfig').gopls.setup{}
             require('lspconfig').jdtls.setup{}
+            require('lspconfig').tinymist.setup{}
             require('lspconfig').svelte.setup{}
             require('lspconfig').harper_ls.setup {
               settings = {
