@@ -35,6 +35,9 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+
+    tailwindcss-language-server
+    vue-language-server
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -125,6 +128,8 @@
             require('lspconfig').jdtls.setup{}
             require('lspconfig').tinymist.setup{}
             require('lspconfig').svelte.setup{}
+            require('lspconfig').tailwindcss.setup{}
+            require('lspconfig').volar.setup{}
             require('lspconfig').harper_ls.setup {
               settings = {
                 ["harper-ls"] = {
