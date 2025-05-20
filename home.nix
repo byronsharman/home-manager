@@ -251,6 +251,9 @@
       enable = true;
       enableCompletion = true;
       enableVteIntegration = true;
+      envExtra = ''
+        if [ -e /home/byron/.nix-profile/etc/profile.d/nix.sh ]; then . /home/byron/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+      '';
       initExtra = builtins.readFile zsh/init.sh;
       shellAliases = {
         du = "du -h";
