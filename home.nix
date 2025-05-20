@@ -68,6 +68,7 @@
   #
   home.sessionVariables = {
     EDITOR = "nvim";
+    SSH_AUTH_SOCK = "$XDG_RUNTIME_DIR/ssh-agent.socket";
   };
 
   programs = {
@@ -237,6 +238,11 @@
           '';
         }
       ];
+    };
+
+    ssh = {
+      enable = true;
+      addKeysToAgent = "yes";
     };
 
     zsh = {
