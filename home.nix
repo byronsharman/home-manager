@@ -90,7 +90,7 @@
         merge.tool = "nvimdiff";
       };
       userEmail = "byron.n.sharman@gmail.com";
-      userName = "b-sharman";
+      userName = "byronsharman";
     };
 
     neovim = {
