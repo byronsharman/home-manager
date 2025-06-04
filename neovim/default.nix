@@ -101,7 +101,15 @@
             },
             pickers = {
               find_files = {
-                find_command = {'rg', '--files', '--sortr=modified'}
+                find_command = {
+                  'rg',
+                  '--files',
+                  '--sortr=modified',
+                  -- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#file-and-text-search-in-hidden-files-and-directories
+                  '--hidden',
+                  '--glob',
+                  '!**/.git/*',
+                },
               }
             }
           }
