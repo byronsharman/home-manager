@@ -98,30 +98,5 @@
       enable = true;
       addKeysToAgent = "yes";
     };
-
-    zsh = {
-      autosuggestion = {
-        enable = true;
-        strategy = [
-          "history"
-          "completion"
-        ];
-      };
-      defaultKeymap = "viins";
-      enable = true;
-      enableCompletion = true;
-      enableVteIntegration = true;
-      envExtra = ''
-        if [ -e /home/byron/.nix-profile/etc/profile.d/nix.sh ]; then . /home/byron/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-      '';
-      initExtra = builtins.readFile zsh/init.sh;
-      shellAliases = {
-        du = "du -h";
-        grep = "grep --color";
-        ip = "ip -c";
-        ls = "ls --color --group-directories-first -h";
-      };
-      syntaxHighlighting.enable = true;
-    };
   };
 }
