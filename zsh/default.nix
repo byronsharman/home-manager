@@ -23,6 +23,7 @@
       grep = "grep --color";
       ip = "ip -c";
       ls = "ls --color --group-directories-first";
+      tree = "tree --dirsfirst";
     };
     syntaxHighlighting.enable = true;
   };
