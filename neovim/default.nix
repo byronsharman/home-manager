@@ -91,6 +91,11 @@
       }
       {
         type = "lua";
+        plugin = guess-indent-nvim;
+        config = "require('guess-indent').setup{}";
+      }
+      {
+        type = "lua";
         plugin = telescope-nvim;
         config = ''
           require('telescope').setup{
