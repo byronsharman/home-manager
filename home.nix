@@ -94,6 +94,14 @@
       userName = "byronsharman";
     };
 
+    keepassxc = {
+      enable = true;
+      settings = {
+        Browser.Enabled = true;
+        SSHAgent.Enabled = true;
+      };
+    };
+
     ssh = {
       enable = true;
       addKeysToAgent = "yes";
