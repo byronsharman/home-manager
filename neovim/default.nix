@@ -5,17 +5,10 @@
     enable = true;
     extraLuaConfig = builtins.readFile ./init.lua;
     defaultEditor = true;
-    plugins = with pkgs.vimPlugins; [
+    plugins = with pkgs.vimPlugins; builtins.map(attrset: { type = "lua"; } // attrset) [
+      { plugin = plenary-nvim; }
+      { plugin = lush-nvim; }
       {
-        type = "lua";
-        plugin = plenary-nvim;
-      }
-      {
-        type = "lua";
-        plugin = lush-nvim;
-      }
-      {
-        type = "lua";
         plugin = bluloco-nvim;
         config = ''
           require('bluloco').setup {
@@ -25,12 +18,10 @@
         '';
       }
       {
-        type = "lua";
         plugin = nvim-lspconfig;
         config = builtins.readFile ./lspconfig.lua;
       }
       {
-        type = "lua";
         plugin = nvim-treesitter.withAllGrammars;
         config = ''
           require('nvim-treesitter.configs').setup({
@@ -52,17 +43,14 @@
         '';
       }
       {
-        type = "lua";
         plugin = guess-indent-nvim;
         config = "require('guess-indent').setup{}";
       }
       {
-        type = "lua";
         plugin = blink-cmp;
         config = "require('blink-cmp').setup{}";
       }
       {
-        type = "lua";
         plugin = telescope-nvim;
         config = ''
           require('telescope').setup{
@@ -95,16 +83,9 @@
           require('telescope').load_extension('ui-select')
         '';
       }
+      { plugin = telescope-fzf-native-nvim; }
+      { plugin = telescope-ui-select-nvim; }
       {
-        type = "lua";
-        plugin = telescope-fzf-native-nvim;
-      }
-      {
-        type = "lua";
-        plugin = telescope-ui-select-nvim;
-      }
-      {
-        type = "lua";
         plugin = nvim-autopairs;
         config = ''
           require('nvim-autopairs').setup{
@@ -114,7 +95,6 @@
         '';
       }
       {
-        type = "lua";
         plugin = typescript-tools-nvim;
         config = ''
           require('typescript-tools').setup{
