@@ -27,45 +27,7 @@
       {
         type = "lua";
         plugin = nvim-lspconfig;
-        # TODO: The nvim-lspconfig docs indicate that the configuration
-        # templates can be made to work with the new vim.lsp.enable /
-        # vim.lsp.config API. However, everything else I researched suggested
-        # that one either drops nvim-lspconfig to use the new API, or if one
-        # does not want to maintain configurations for all their LSPs, they
-        # must continue to use the "deprecated" lspconfig.foo.setup{} syntax.
-        config = ''
-          require('lspconfig')
-          require('lspconfig').biome.setup{
-            cmd = {"npx", "biome", "lsp-proxy"},
-          }
-          require('lspconfig').gopls.setup{}
-          require('lspconfig').jdtls.setup{}
-          require('lspconfig').tinymist.setup{}
-          require('lspconfig').svelte.setup{}
-          require('lspconfig').tailwindcss.setup{}
-          require('lspconfig').volar.setup{}
-          require('lspconfig').harper_ls.setup {
-            settings = {
-              ["harper-ls"] = {
-                linters = {
-                  AnA = true,
-                  CorrectNumberSuffix = true,
-                  LongSentences = false,
-                  Matcher = false,
-                  RepeatedWords = true,
-                  SentenceCapitalization = false,
-                  Spaces = false,
-                  SpellCheck = false,
-                  SpelledNumbers = false,
-                  ToDoHyphen = false,
-                  UnclosedQuotes = true,
-                  WrongQuotes = false
-                }
-              }
-            },
-          }
-          require('lspconfig').ruff.setup{}
-        '';
+        config = builtins.readFile ./lspconfig.lua;
       }
       {
         type = "lua";
@@ -93,6 +55,11 @@
         type = "lua";
         plugin = guess-indent-nvim;
         config = "require('guess-indent').setup{}";
+      }
+      {
+        type = "lua";
+        plugin = blink-cmp;
+        config = "require('blink-cmp').setup{}";
       }
       {
         type = "lua";
