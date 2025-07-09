@@ -48,7 +48,13 @@
       }
       {
         plugin = blink-cmp;
-        config = "require('blink-cmp').setup{}";
+        config = ''
+          require('blink-cmp').setup{
+            keymap = {
+              ['<Right>'] = { 'select_and_accept' },
+            },
+          }
+        '';
       }
       {
         plugin = telescope-nvim;
