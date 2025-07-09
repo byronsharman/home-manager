@@ -4,6 +4,7 @@ lsp_opts = {
   },
   gopls = {},
   jdtls = {},
+  nil_ls = {},
   ruff = {},
   svelte = {},
   tailwindcss = {},

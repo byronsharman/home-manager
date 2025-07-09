@@ -37,6 +37,7 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
 
+    nil
     tailwindcss-language-server
     vue-language-server
   ];
