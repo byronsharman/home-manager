@@ -100,6 +100,7 @@
           }
         '';
       }
+      { plugin = lazydev-nvim; }
       {
         plugin = typescript-tools-nvim;
         config = ''
