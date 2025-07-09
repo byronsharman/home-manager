@@ -36,11 +36,7 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-
-    nil
-    tailwindcss-language-server
-    vue-language-server
-  ];
+  ] ++ import ./neovim/lsp_packages.nix pkgs;
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
