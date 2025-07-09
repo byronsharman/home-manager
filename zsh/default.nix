@@ -17,7 +17,7 @@
     envExtra = ''
       if [ -e /home/byron/.nix-profile/etc/profile.d/nix.sh ]; then . /home/byron/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
     '';
-    initExtra = builtins.readFile ./init.sh;
+    initContent = builtins.readFile ./init.sh;
     shellAliases = {
       du = "du -h";
       grep = "grep --color";
