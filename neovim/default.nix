@@ -49,11 +49,7 @@
       {
         plugin = blink-cmp;
         config = ''
-          require('blink-cmp').setup{
-            keymap = {
-              ['<Right>'] = { 'select_and_accept' },
-            },
-          }
+          require('blink-cmp').setup{}
         '';
       }
       {
