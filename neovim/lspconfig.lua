@@ -5,6 +5,7 @@ lsp_opts = {
   gopls = {},
   jdtls = {},
   nil_ls = {},
+  pyright = {},
   ruff = {},
   svelte = {},
   tailwindcss = {},
