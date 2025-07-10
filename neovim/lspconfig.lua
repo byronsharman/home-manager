@@ -3,7 +3,6 @@ lsp_opts = {
     cmd = {"npx", "biome", "lsp-proxy"},
   },
   gopls = {},
-  jdtls = {},
   nil_ls = {},
   pyright = {},
   ruff = {},
