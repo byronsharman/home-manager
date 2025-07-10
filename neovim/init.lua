@@ -4,12 +4,6 @@ vim.opt.hlsearch = false
 vim.opt.spell = true
 vim.opt.spelllang = "en_us"
 
--- tab stuff
-vim.opt.expandtab = true
-vim.opt.shiftwidth = 4
-vim.opt.softtabstop = -1
-vim.opt.smarttab = true
-
 vim.diagnostic.config({
   signs=false, -- disable annoying diagnostics gutter
   virtual_lines=true,
