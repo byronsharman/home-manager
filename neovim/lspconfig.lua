@@ -15,18 +15,13 @@ lsp_opts = {
     settings = {
       ["harper-ls"] = {
         linters = {
-          AnA = true,
-          CorrectNumberSuffix = true,
           LongSentences = false,
           Matcher = false,
-          RepeatedWords = true,
           SentenceCapitalization = false,
           Spaces = false,
           SpellCheck = false,
           SpelledNumbers = false,
           ToDoHyphen = false,
-          UnclosedQuotes = true,
-          WrongQuotes = false
         },
       },
     },
