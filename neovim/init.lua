@@ -11,14 +11,15 @@ vim.opt.softtabstop = -1
 vim.opt.smarttab = true
 
 vim.diagnostic.config({
-    signs=false, -- disable annoying diagnostics gutter
-    virtual_lines=true,
+  signs=false, -- disable annoying diagnostics gutter
+  virtual_lines=true,
 })
 
 -- highlight yanked text for 200ms
-vim.cmd[[
-  augroup highlight_yank
-  autocmd!
-  au TextYankPost * silent! lua vim.highlight.on_yank({higroup="IncSearch", timeout=200})
-  augroup END
-]]
+vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight when yanking text',
+  group = vim.api.nvim_create_augroup('highlight-yank', {}),
+  callback = function()
+    vim.hl.on_yank{ higroup="IncSearch", timeout=200 }
+  end,
+})
