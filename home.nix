@@ -21,6 +21,7 @@
   # environment.
   home.packages = with pkgs; [
     bat
+    numbat
     typst
   ] ++ import ./neovim/lsp_packages.nix pkgs;
 
