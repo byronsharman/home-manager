@@ -9,7 +9,11 @@ lsp_opts = {
   ruff = {},
   svelte = {},
   tailwindcss = {},
-  tinymist = {},
+  tinymist = {
+    settings = {
+      formatterMode = "typstyle",
+    },
+  },
   volar = {},
 
   harper_ls = {
