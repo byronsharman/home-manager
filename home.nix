@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./neovim ./zsh ];
+  imports = [ ./neovim ./fish ./zsh ];
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
