@@ -51,5 +51,10 @@ function fish_prompt --description 'Write out the prompt'
         set prompt_status $status_color "[" $last_status "]" $normal
     end
 
-    echo -s (whoami)@(prompt_hostname) ' ' $cwd_color (path basename $PWD) $vcs_color (fish_vcs_prompt) $normal ' ' $prompt_status $status_color $suffix ' ' $normal
+    set _promptname (path basename $PWD)
+    if test $PWD = $HOME
+        set _promptname '~'
+    end
+
+    echo -s (whoami)@(prompt_hostname) ' ' $cwd_color $_promptname $vcs_color (fish_vcs_prompt) $normal ' ' $prompt_status $status_color $suffix ' ' $normal
 end
