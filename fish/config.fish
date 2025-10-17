@@ -33,7 +33,6 @@ function fish_prompt --description 'Write out the prompt'
     set -l normal (set_color normal)
     set -l status_color (set_color brgreen)
     set -l cwd_color (set_color $fish_color_cwd)
-    set -l vcs_color (set_color brpurple)
     set -l prompt_status ""
 
     # don't abbreviate parent directory lengths
@@ -60,5 +59,5 @@ function fish_prompt --description 'Write out the prompt'
         set _promptname '~'
     end
 
-    echo -s (whoami)@(prompt_hostname) ' ' $cwd_color $_promptname $vcs_color (fish_vcs_prompt) $normal ' ' $prompt_status $status_color $suffix ' ' $normal
+    echo -s (whoami)@(prompt_hostname) ' ' $cwd_color $_promptname $normal ' ' $prompt_status $status_color $suffix ' ' $normal
 end
