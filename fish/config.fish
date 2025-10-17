@@ -1,6 +1,10 @@
-# # I forget what this does, but I think it has to do with adding fish to the PATH
-# # never mind; the file doesn't exist; hopefully nothing breaks
-# if test -f /home/byron/.nix-profile/etc/profile.d/nix.sh; /home/byron/.nix-profile/etc/profile.d/nix.sh; end
+# don't know why, but stuff doesn't get properly added to the PATH without this
+. /home/byron/.config/home-manager/fish/default-profile.fish
+
+# this is close to what the nix installer adds to your fish by default
+# if test -e /nix/var/nix/profiles/default/etc/profile.d/nix.fish
+#   . /nix/var/nix/profiles/default/etc/profile.d/nix.fish
+# end
 
 function fish_mode_prompt; end  # disable insert/normal mode indicator
 fish_vi_key_bindings insert
