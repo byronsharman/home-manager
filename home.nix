@@ -60,6 +60,11 @@
     # Let Home Manager install and manage itself.
     home-manager.enable = true;
 
+    delta = {
+      enable = true;
+      enableGitIntegration = true;
+    };
+
     fzf = {
       enable = true;
       # enabling it manually allows me to disable Alt-C
@@ -69,13 +74,14 @@
 
     git = {
       enable = true;
-      delta.enable = true;
-      extraConfig = {
+      settings = {
         init.defaultBranch = "main";
         merge.tool = "nvimdiff";
+        user = {
+          email = "byron.n.sharman@gmail.com";
+          name = "byronsharman";
+        };
       };
-      userEmail = "byron.n.sharman@gmail.com";
-      userName = "byronsharman";
     };
 
     keepassxc = {
@@ -88,7 +94,21 @@
 
     ssh = {
       enable = true;
-      addKeysToAgent = "yes";
+      # disable deprecated default config
+      enableDefaultConfig = false;
+      # most of these are copied from the previous default config
+      matchBlocks."*" = {
+        forwardAgent = false;
+        addKeysToAgent = "yes";
+        compression = false;
+        serverAliveInterval = 0;
+        serverAliveCountMax = 3;
+        hashKnownHosts = false;
+        userKnownHostsFile = "~/.ssh/known_hosts";
+        controlMaster = "no";
+        controlPath = "~/.ssh/master-%r@%n:%p";
+        controlPersist = "no";
+      };
     };
   };
 }
