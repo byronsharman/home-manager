@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./neovim ./fish ./zsh ];
+  imports = [ ./nvim ./fish ./zsh ];
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -23,7 +23,7 @@
     bat
     numbat
     typst
-  ] ++ import ./neovim/lsp_packages.nix pkgs;
+  ] ++ import ./nvim/lsp_packages.nix pkgs;
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
