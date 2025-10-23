@@ -109,10 +109,6 @@
                 'typescriptreact',
                 'vue',
               },
-              tsserver_plugins = {
-                '@vue/typescript-plugin',
-                languages = { 'vue' },
-              },
             },
           }
         '';

@@ -14,7 +14,6 @@ lsp_opts = {
       formatterMode = "typstyle",
     },
   },
-  volar = {},
 
   harper_ls = {
     settings = {
