@@ -127,7 +127,15 @@
         cscale = "ewa_lanczossharp";
       };
     };
+
+    ssh = {
+      enable = true;
+      enableDefaultConfig = false;
+      settings."*".addKeysToAgent = "yes";
+    };
   };
+
+  services.ssh-agent.enable = true;
 
   xdg = {
     enable = true;
