@@ -6,7 +6,6 @@ pkgs: with pkgs; [
   pyright
   ruff
   svelte-language-server
-  tailwindcss-language-server
   tinymist
   typstyle
 ]

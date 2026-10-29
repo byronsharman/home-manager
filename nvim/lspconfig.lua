@@ -10,7 +10,6 @@ lsp_opts = {
   pyright = {},
   ruff = {},
   svelte = {},
-  tailwindcss = {},
   tinymist = {
     settings = {
       formatterMode = "typstyle",
