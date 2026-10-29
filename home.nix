@@ -1,0 +1,179 @@
+{ pkgs, ... }:
+
+{
+  imports = [ ./nvim ./fish ];
+
+  nix = {
+    package = pkgs.nix;
+    settings.experimental-features = [ "nix-command" "flakes" ];
+  };
+
+  # Home Manager needs a bit of information about you and the paths it should
+  # manage.
+  home.username = "byron";
+  home.homeDirectory = "/home/byron";
+
+  # This value determines the Home Manager release that your configuration is
+  # compatible with. This helps avoid breakage when a new Home Manager release
+  # introduces backwards incompatible changes.
+  #
+  # You should not change this value, even if you update Home Manager. If you do
+  # want to update the value, then make sure to first check the Home Manager
+  # release notes.
+  home.stateVersion = "23.11"; # Please read the comment before changing.
+
+  # The home.packages option allows you to install Nix packages into your
+  # environment.
+  home.packages = with pkgs; [
+    bat
+    claude-code
+    hayagriva
+    numbat
+    qbittorrent
+    typst
+
+    gnupg
+  ] ++ import ./nvim/lsp_packages.nix pkgs;
+
+  # Home Manager is pretty good at managing dotfiles. The primary way to manage
+  # plain files is through 'home.file'.
+  home.file = {};
+
+  # Home Manager can also manage your environment variables through
+  # 'home.sessionVariables'. If you don't want to manage your shell through Home
+  # Manager then you have to manually source 'hm-session-vars.sh' located at
+  # either
+  #
+  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
+  #
+  # or
+  #
+  #  /etc/profiles/per-user/byron/etc/profile.d/hm-session-vars.sh
+  #
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    SSH_AUTH_SOCK = "$XDG_RUNTIME_DIR/ssh-agent.socket";
+  };
+
+  home.pointerCursor = {
+    enable = true;
+    package = pkgs.adwaita-icon-theme;
+    name = "Adwaita";
+    x11.enable = true;
+    size = 24;
+  };
+
+  home.preferXdgDirectories = true;
+
+  # commented out as I don't know if osConfig is available on non-NixOS systems
+  # xdg.mimeApps = {
+  #   enable = true;
+  #   # Some apps (e.g. Discord) are nasty and don't respect the system-wide xdg
+  #   # default applications. However, they do seem to see them if set at the
+  #   # user level, which we do here.
+  #   defaultApplications = osConfig.xdg.mime.defaultApplications;
+  # };
+ 
+  xdg.configFile."niri/config.kdl".source = niri/config.kdl;
+
+  programs = {
+    # Let Home Manager install and manage itself.
+    home-manager.enable = true;
+
+    codex.enable = true;
+
+    delta = {
+      enable = true;
+      enableGitIntegration = true;
+    };
+
+    direnv = {
+      enable = true;
+      enableFishIntegration = true;
+      silent = true;
+      nix-direnv.enable = true;
+    };
+
+    discord = {
+      enable = true;
+      settings.SKIP_HOST_UPDATE = true;
+    };
+
+    fzf = {
+      enable = true;
+      # enabling it manually allows me to disable Alt-C
+      # see https://github.com/junegunn/fzf/issues/1238
+      enableZshIntegration = false;
+      defaultOptions = [ "--height 5" "--style minimal" "--reverse" ];
+    };
+
+    git = {
+      enable = true;
+      settings = {
+        init.defaultBranch = "main";
+        merge.tool = "nvimdiff";
+        user = {
+          email = "byron.n.sharman@gmail.com";
+          name = "byronsharman";
+        };
+      };
+    };
+
+    mpv = {
+      enable = true;
+      config = {
+        hwdec = "auto";
+        screenshot-format = "png";
+        vo="gpu-next";
+
+        fs = "yes";
+        scale = "ewa_lanczossharp";
+        cscale = "ewa_lanczossharp";
+      };
+    };
+
+    ssh = {
+      enable = true;
+      # disable deprecated default config
+      enableDefaultConfig = false;
+      # most of these are copied from the previous default config
+      matchBlocks."*" = {
+        forwardAgent = false;
+        addKeysToAgent = "yes";
+        compression = false;
+        serverAliveInterval = 0;
+        serverAliveCountMax = 3;
+        hashKnownHosts = false;
+        userKnownHostsFile = "~/.ssh/known_hosts";
+        controlMaster = "no";
+        controlPath = "~/.ssh/master-%r@%n:%p";
+        controlPersist = "no";
+      };
+    };
+  };
+
+  services = {
+    gpg-agent.enable = true;
+    ssh-agent.enable = true;
+  };
+
+  xdg = {
+    enable = true;
+    userDirs = {
+      enable = true;
+      createDirectories = true;
+      setSessionVariables = true;
+    };
+    # thing that's supposed to make Discord launch as a Wayland app by default
+    # created by Google Search AI, so I'm skeptical
+    desktopEntries.discord = {
+      name = "Discord";
+      exec = "discord --enable-features=UseOzonePlatform --ozone-platform=wayland %U";
+      icon = "discord";
+      type = "Application";
+      categories = [ "Network" "InstantMessaging" "Chat" ];
+    };
+  };
+
+  dconf.settings."org/gnome/desktop/interface".gtk-enable-primary-paste = true;
+}
