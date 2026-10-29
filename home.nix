@@ -28,11 +28,8 @@
     bat
     claude-code
     hayagriva
+    home-manager
     numbat
-    qbittorrent
-    typst
-
-    gnupg
   ] ++ import ./nvim/lsp_packages.nix pkgs;
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
