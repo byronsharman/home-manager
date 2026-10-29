@@ -28,7 +28,6 @@
     bat
     claude-code
     hayagriva
-    home-manager
     numbat
   ] ++ import ./nvim/lsp_packages.nix pkgs;
 

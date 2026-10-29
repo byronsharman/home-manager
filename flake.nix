@@ -12,7 +12,11 @@
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
     homeConfigurations.byron = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      # pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      pkgs = import nixpkgs {
+        system = "x86_64-linux";
+        config.allowUnfree = true;
+      };
       extraSpecialArgs = { inherit inputs; };
       modules = [ ./home.nix ];
     };

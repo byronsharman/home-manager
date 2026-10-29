@@ -1,6 +1,3 @@
-# don't know why, but stuff doesn't get properly added to the PATH without this
-. /etc/nixos/home-manager/fish/default-profile.fish
-
 # this is close to what the nix installer adds to your fish by default
 # if test -e /nix/var/nix/profiles/default/etc/profile.d/nix.fish
 #   . /nix/var/nix/profiles/default/etc/profile.d/nix.fish
