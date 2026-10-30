@@ -57,3 +57,5 @@ function fish_prompt --description 'Write out the prompt'
 
     echo -s (whoami)@(prompt_hostname) ' ' $cwd_color $_promptname $normal ' ' $prompt_status $status_color $suffix ' ' $normal
 end
+
+set -gx LEDGER_FILE ./hledger.journal
