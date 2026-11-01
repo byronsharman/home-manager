@@ -117,6 +117,8 @@
 
     mpv = {
       enable = true;
+      # use arch package, not nixos package
+      package = pkgs.emptyDirectory;
       config = {
         hwdec = "auto";
         screenshot-format = "png";
